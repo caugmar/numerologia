@@ -1,0 +1,7 @@
+syntax: glob
+pom.xml
+*jar
+
+syntax: regexp
+^classes/
+^lib/
