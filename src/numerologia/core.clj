@@ -1,4 +1,5 @@
-(ns numerologia.core)
+(ns numerologia.core
+  (:use numerologia.textos))
 
 (defn separar-digitos [numero] (map (fn [c] (Integer. (str c))) (str numero)))
 
@@ -17,9 +18,10 @@
                           "10005000900000600000300000"))
 
 (def sem-acento (apply array-map (interleave (seq "áéíóúàèìòùâêîôûãẽĩõũäëïöüçñ")
-                                             (seq "aeiouaeiouaeiouaeiouaeioucn")
+                                             (seq "aeiouaeiouaeiouaeiouaeioucn"))))
 
-(def pontuação #{\space \' \! \@ \# \$ \% \¨ \& \* \( \) \_ \+ \- \= \` \´ \{ \[ \^ \~ \} \] \ª \º \< \> \, \. \: \; \? \/ \| \" \\ })
+(def pontuação #{\space \' \! \@ \# \$ \% \¨ \& \* \( \) \_ \+ \- \= \` \´
+                   \{ \[ \^ \~ \} \] \ª \º \< \> \, \. \: \; \? \/ \| \" \\ })
 
 (defn converter-nome [nome] (remove pontuação (map (fn [c] (get sem-acento c c)) (.toLowerCase nome))))
 
