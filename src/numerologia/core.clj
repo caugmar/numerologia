@@ -46,3 +46,25 @@
 
 (defn obter-numero-do-aniversario [data] (Integer. (apply str (take 2 data))))
 
+
+(defn analise-numerológica [nome data]
+  (str
+    "<h1>Análise Numerológica</h1>"
+    "<h2>" nome "</h2>"
+    "<h2>" data "</h2>"
+    "<h3>O Número do Caminho da Vida</h3>"
+    (descricoes :caminho-da-vida)
+    (caminho-da-vida (obter-numero-do-caminho-da-vida data))
+    "<h3>O Número do Destino</h3>"
+    (descricoes :destino)
+    (destino (obter-numero-do-destino nome))
+    "<h3>O Número do Desejo da Alma</h3>"
+    (descricoes :desejo-da-alma)
+    (desejo-da-alma (obter-numero-do-desejo-da-alma nome))
+    "<h3>O Número dos Sonhos Interiores</h3>"
+    (descricoes :sonhos-interiores)
+    (sonhos-interiores (obter-numero-dos-sonhos-interiores nome))
+    "<h3>O Número do Aniversário</h3>"
+    (descricoes :aniversario)
+    (aniversario (obter-numero-do-aniversario data))))
+
