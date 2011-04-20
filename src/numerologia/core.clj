@@ -46,7 +46,6 @@
 
 (defn obter-numero-do-aniversario [data] (Integer. (apply str (take 2 data))))
 
-
 (defn analise-numerológica [nome data]
   (str
     "<h1>Análise Numerológica</h1>"
